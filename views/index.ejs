@@ -25,7 +25,7 @@
       姓名：<input type="text" id="name">
     </div>
     <div>
-      头像：<input type="text" id="icon">
+      头像：<input onchange="uploadImage(event)" type="file" accept="image/*">
     </div>
     <div>
       年龄：<input type="number" id="age">
@@ -43,6 +43,22 @@
   </div>
 </body>
 <script>
+  function uploadImage(e) {
+    // console.log(e);
+    let file = e.target.files[0];
+    let param = new FormData();
+    param.append("file", file);
+    let config = {
+      headers: {"Content-type": "multipart/form-data"}
+    }
+    axios.post("/upload", param, config)
+         .then((res) => {
+           console.log(res);
+         })
+         .catch(err => {
+           console.log(err);
+         })
+  };
   function insertUser() {
     let name = document.getElementById("name");
     let icon = document.getElementById("icon");
