@@ -1,5 +1,6 @@
 const Koa = require('koa')
 const Router = require('koa-router')
+const multer = require('koa-multer')
 const app = new Koa()
 const router = new Router()
 
@@ -42,15 +43,10 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - $ms`)
 })
 
-router.get('/', async (ctx, next) => {
-  // ctx.body = 'Hello World'
-  ctx.state = {
-    title: 'Koa2'
-  }
-  await ctx.render('index', ctx.state)
-})
-
+// 路由
 routes(router)
+
+// error
 app.on('error', function(err, ctx) {
   console.log(err)
   logger.error('server error', err, ctx)

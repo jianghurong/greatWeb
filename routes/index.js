@@ -1,13 +1,15 @@
-const db = require("../scripts/db");
+const db = require('../scripts/db');
+const upload  = require('./upload');
 
 module.exports =  (router) => {
-  //upload file
-  router.post('/upload', async function (ctx, next) {
-    // ctx.response.set("Access-Control-Allow-Origin", '*');
-    ctx.body = ctx.request.body;
-    console.log(ctx.request.body);
+  // 文件上传路由
+  router.use('/upload', upload.routes(), upload.allowedMethods());
+  router.get('/', async (ctx, next) => {
+    ctx.state = {
+      title: 'Koa2'
+    }
+    await ctx.render('index', ctx.state)
   })
-
   // retrieve user
   router.get('/retrieve/user', async function (ctx, next) {
     let list = await db.retrieveUsers();

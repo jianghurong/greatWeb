@@ -24,9 +24,13 @@
     <div>
       姓名：<input type="text" id="name">
     </div>
-    <div>
-      头像：<input onchange="uploadImage(event)" type="file" accept="image/*">
-    </div>
+    <form action="/upload/images" method="post" enctype="multipart/form-data">
+      <div>
+          头像：<input type="file" name="image" accept="image/*">
+        </div>
+        <button>上传</button>
+    </form>
+   
     <div>
       年龄：<input type="number" id="age">
     </div>
