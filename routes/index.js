@@ -8,7 +8,7 @@ module.exports =  (router) => {
     ctx.state = {
       title: 'Koa2'
     }
-    await ctx.render('index', ctx.state)
+    await ctx.render('index', ctx.state);
   })
   // retrieve user
   router.get('/retrieve/user', async function (ctx, next) {
