@@ -14,6 +14,11 @@ export default new Router({
       component: Home
     },
     {
+      path: '/feeling',
+      name: 'feelingAnalysis',
+      component: () => import ('./views/FeelingAnalysis.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
