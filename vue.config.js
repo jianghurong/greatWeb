@@ -2,8 +2,8 @@
  * @Author: Answer.Jiang 
  * @Filename: vue config
  * @Date: 2018-11-09 09:56:12 
- * @Last Modified by: Answer.Jiang
- * @Last Modified time: 2018-11-09 11:12:40
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2018-11-09 15:25:48
  */
 module.exports = {
     baseUrl: '/', // 根路径
@@ -19,12 +19,12 @@ module.exports = {
         hotOnly: false, // 热模块刷新
         proxy: {
             // 跨域配置
-            '/api': {
+            '/bilibili': {
                 target: "https://bangumi.bilibili.com",
                 ws: true,
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/api': '' // 将''替换target
+                    '^/bilibili': '' // 将''替换target
                 }
             }
         }
